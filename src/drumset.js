@@ -117,189 +117,189 @@ const bankTwo = [
 
 class DrumSet extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       audioDisplay: '',
       volume: 40,
       isPowerOff: false,
       isBankTwoActive: false,
-    }
+    };
   }
 
   componentDidMount() {
-    document.addEventListener('keypress', this.handleKeypress)
+    document.addEventListener('keypress', this.handleKeypress);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keypress', this.handleKeypress)
+    document.removeEventListener('keypress', this.handleKeypress);
   }
 
   handleKeypress = (event) => {
     if (!this.state.isPowerOff) {
       let keyIsValid = this.state.isBankTwoActive
         ? bankTwo.some((el) => el.keyCode === event.which)
-        : bankOne.some((el) => el.keyCode === event.which)
+        : bankOne.some((el) => el.keyCode === event.which);
 
       if (keyIsValid) {
         let currentKey = this.state.isBankTwoActive
           ? bankTwo.filter((el) => {
-              return el.keyCode === event.which
+              return el.keyCode === event.which;
             })
           : bankOne.filter((el) => {
-              return el.keyCode === event.which
-            })
+              return el.keyCode === event.which;
+            });
 
         this.setState({
           audioDisplay: currentKey[0]['id'],
-        })
+        });
       }
 
-      let vol = this.state.volume / 100
+      let vol = this.state.volume / 100;
 
       switch (event.which) {
         case 81:
-          const Q = document.getElementById('Q')
-          Q.volume = vol
-          Q.play()
-          break
+          const Q = document.getElementById('Q');
+          Q.volume = vol;
+          Q.play();
+          break;
         case 87:
-          const W = document.getElementById('W')
-          W.volume = vol
-          W.play()
-          break
+          const W = document.getElementById('W');
+          W.volume = vol;
+          W.play();
+          break;
         case 69:
-          const E = document.getElementById('E')
-          E.volume = vol
-          E.play()
-          break
+          const E = document.getElementById('E');
+          E.volume = vol;
+          E.play();
+          break;
         case 65:
-          const A = document.getElementById('A')
-          A.volume = vol
-          A.play()
-          break
+          const A = document.getElementById('A');
+          A.volume = vol;
+          A.play();
+          break;
         case 83:
-          const S = document.getElementById('S')
-          S.volume = vol
-          S.play()
-          break
+          const S = document.getElementById('S');
+          S.volume = vol;
+          S.play();
+          break;
         case 68:
-          const D = document.getElementById('D')
-          D.volume = vol
-          D.play()
-          break
+          const D = document.getElementById('D');
+          D.volume = vol;
+          D.play();
+          break;
         case 90:
-          const Z = document.getElementById('Z')
-          Z.volume = vol
-          Z.play()
-          break
+          const Z = document.getElementById('Z');
+          Z.volume = vol;
+          Z.play();
+          break;
         case 88:
-          const X = document.getElementById('X')
-          X.volume = vol
-          X.play()
-          break
+          const X = document.getElementById('X');
+          X.volume = vol;
+          X.play();
+          break;
         case 67:
-          const C = document.getElementById('C')
-          C.volume = vol
-          C.play()
-          break
+          const C = document.getElementById('C');
+          C.volume = vol;
+          C.play();
+          break;
         default:
-          break
+          break;
       }
     }
-  }
+  };
 
   toggleBanks = () => {
     if (!this.state.isPowerOff) {
-      let bank = this.state.isBankTwoActive ? 'Heater Kit' : 'Smooth Piano Kit'
+      let bank = this.state.isBankTwoActive ? 'Heater Kit' : 'Smooth Piano Kit';
       this.setState((state) => ({
         isBankTwoActive: !state.isBankTwoActive,
         audioDisplay: bank,
-      }))
+      }));
     }
-  }
+  };
 
   togglePower = () => {
-    let isPowerOff = !this.state.isPowerOff
+    let isPowerOff = !this.state.isPowerOff;
     this.setState({
       isPowerOff,
       audioDisplay: '',
-    })
-  }
+    });
+  };
 
   adjustVolume = (e) => {
     if (!this.state.isPowerOff) {
-      let value = e.target.value
+      let value = e.target.value;
       this.setState((state) => ({
         volume: value,
         audioDisplay: 'Volume:' + value,
-      }))
+      }));
 
-      setTimeout(() => this.setState({ audioDisplay: '' }), 600)
+      setTimeout(() => this.setState({ audioDisplay: '' }), 600);
     }
-  }
+  };
 
   handleClick = (event) => {
     if (!this.state.isPowerOff) {
       this.setState({
         audioDisplay: event.target.name,
-      })
+      });
 
-      let vol = this.state.volume / 100
+      let vol = this.state.volume / 100;
 
       switch (event.target.value) {
         case '81':
-          const Q = document.getElementById('Q')
-          Q.volume = vol
-          Q.play()
-          break
+          const Q = document.getElementById('Q');
+          Q.volume = vol;
+          Q.play();
+          break;
         case '87':
-          const W = document.getElementById('W')
-          W.volume = vol
-          W.play()
-          break
+          const W = document.getElementById('W');
+          W.volume = vol;
+          W.play();
+          break;
         case '69':
-          const E = document.getElementById('E')
-          E.volume = vol
-          E.play()
-          break
+          const E = document.getElementById('E');
+          E.volume = vol;
+          E.play();
+          break;
         case '65':
-          const A = document.getElementById('A')
-          A.volume = vol
-          A.play()
-          break
+          const A = document.getElementById('A');
+          A.volume = vol;
+          A.play();
+          break;
         case '83':
-          const S = document.getElementById('S')
-          S.volume = vol
-          S.play()
-          break
+          const S = document.getElementById('S');
+          S.volume = vol;
+          S.play();
+          break;
         case '68':
-          const D = document.getElementById('D')
-          D.volume = vol
-          D.play()
-          break
+          const D = document.getElementById('D');
+          D.volume = vol;
+          D.play();
+          break;
         case '90':
-          const Z = document.getElementById('Z')
-          Z.volume = vol
-          Z.play()
-          break
+          const Z = document.getElementById('Z');
+          Z.volume = vol;
+          Z.play();
+          break;
         case '88':
-          const X = document.getElementById('X')
-          X.volume = vol
-          X.play()
-          break
+          const X = document.getElementById('X');
+          X.volume = vol;
+          X.play();
+          break;
         case '67':
-          const C = document.getElementById('C')
-          C.volume = vol
-          C.play()
-          break
+          const C = document.getElementById('C');
+          C.volume = vol;
+          C.play();
+          break;
         default:
-          break
+          break;
       }
     }
-  }
+  };
 
   render() {
-    const { audioDisplay, isBankTwoActive, volume, isPowerOff } = this.state
+    const { audioDisplay, isBankTwoActive, volume, isPowerOff } = this.state;
 
     const createDrums = (obj, i) => {
       return (
@@ -308,28 +308,28 @@ class DrumSet extends React.Component {
           id={obj.id.toLowerCase().replace(/\s/g, '-')}
           name={obj.id}
           value={obj.keyCode}
-          className="drum-pad"
+          className='drum-pad'
           onClick={this.handleClick}
         >
           {obj.keyTrigger}
           <audio
             id={obj.keyTrigger}
-            className="clip"
+            className='clip'
             src={obj.src}
-            preload="auto"
-            volume="0.5"
+            preload='auto'
+            volume='0.5'
           />
         </button>
-      )
-    }
+      );
+    };
 
     const drums = isBankTwoActive
       ? bankTwo.map(createDrums)
-      : bankOne.map(createDrums)
+      : bankOne.map(createDrums);
 
     return (
-      <div id="drum-machine">
-        <div id="grid">{drums}</div>
+      <div id='drum-machine'>
+        <div id='grid'>{drums}</div>
         <Controls
           displayText={audioDisplay}
           isBankTwoActive={isBankTwoActive}
@@ -340,8 +340,8 @@ class DrumSet extends React.Component {
           adjustVolume={this.adjustVolume}
         />
       </div>
-    )
+    );
   }
 }
 
-export default DrumSet
+export default DrumSet;

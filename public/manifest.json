@@ -1,5 +1,5 @@
 {
-  "short_name": "React App",
+  "short_name": "Drum Machine",
   "name": "Drum Machine",
   "start_url": ".",
   "display": "standalone",
